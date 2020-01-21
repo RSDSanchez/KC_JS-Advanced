@@ -1,16 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+   <head>
+      <meta charset="UTF-8" />
+      <meta
+         name="viewport"
+         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>BeerFlix</title>
+      <link
+         href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap"
+         rel="stylesheet"
+      />
+      <link
+         rel="stylesheet"
+         href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+         integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN"
+         crossorigin="anonymous"
+      />
+      <link rel="shortcut icon" href="./img/favicon.png" type="image/png" />
+      <link rel="stylesheet" href="./css/global.css" />
+      <link rel="stylesheet" href="./css/navbar.css" />
+      <link rel="stylesheet" href="./css/footer.css" />
+      <link rel="stylesheet" href="./css/main.css" />
+   </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+   <body>
+      <!-----------------------------------------
+        NAVBAR
+    ------------------------------------------->
 
-<body>
+      <nav class="navbar">
+         <div class="logo">
+            <a href="index.html"
+               ><img src="./img/logo_tt.png" alt="logo Viewflix"
+            /></a>
+         </div>
 
-    <script src="api.js"></script>
-</body>
+         <div class="menu">
+            <input type="checkbox" id="menu-checkbox" />
+            <label for="menu-checkbox" class="menu-label"></label>
 
+            <ul class="menu-list">
+               <li><a href="novedades.html">Novedades</a></li>
+               <li><a href="#">Series</a></li>
+               <li><a href="#">Películas</a></li>
+               <li><a href="#">Favoritos</a></li>
+               <li>
+                  <form action="">
+                     <input
+                        type="search"
+                        name="search"
+                        id="search"
+                        placeholder=" Busca un título"
+                     />
+                     <button type="submit">Buscar</button>
+                  </form>
+               </li>
+            </ul>
+         </div>
+
+         <div class="signin">
+            <button class="register-btn"><strong>Log Out</strong></button>
+         </div>
+      </nav>
+
+      <!-----------------------------------------
+        HEADER
+    ------------------------------------------->
+
+      <header class="header">
+         <img
+            src="img/header-1200.jpg"
+            srcset="
+               img/header-350.jpg   350w,
+               img/header-768.jpg   768w,
+               img/header-1200.jpg 1200w
+            "
+            alt="header cervezas"
+         />
+         <div class="main-title">
+            <h1>Bienvenido a BeerFlix</h1>
+            <p>¿Qué celebramos hoy?</p>
+         </div>
+      </header>
+
+      <!-----------------------------------------
+        MAIN
+    ------------------------------------------->
+
+      <main class="main">
+         <section class="populares section-container">
+            <h2 class="section-title"><a href="#">Populares</a></h2>
+
+            <article class="film-item film1">
+               <a href="movie.html"
+                  ><img
+                     src="./img/avengers-500.jpg"
+                     srcset="
+                        img/avengers-250.jpg 250w,
+                        img/avengers-500.jpg 500w
+                     "
+                     alt="Película Avengers"
+               /></a>
+
+               <div class="film-description">
+                  <div class="film-info">
+                     <div class="left">Año: 2019</div>
+                     <div class="right">IMdB: 7.5</div>
+                  </div>
+                  <a href="movie.html">
+                     <h3>Avengers: Endgame</h3>
+                     <p>
+                        Los Vengadores restantes deben encontrar una manera de
+                        recuperar a sus aliados para un enfrentamiento épico con
+                        Thanos, el malvado que diezmó el planeta y el universo.
+                     </p></a
+                  >
+               </div>
+            </article>
+         </section>
+      </main>
+
+      <!-----------------------------------------
+        FOOTER
+    ------------------------------------------->
+
+      <footer class="footer">
+         <div class="footer-col"><a href="#">Contacto</a></div>
+         <div class="footer-col"><a href="#">Aviso legal</a></div>
+         <div class="footer-col">
+            <ul class="social-list">
+               <li>
+                  <a href=""><i class="fab fa-facebook fa-2x"></i></a>
+               </li>
+               <li>
+                  <a href=""><i class="fab fa-instagram fa-2x"></i></a>
+               </li>
+               <li>
+                  <a href=""><i class="fab fa-twitter fa-2x"></i></a>
+               </li>
+            </ul>
+         </div>
+      </footer>
+   </body>
 </html>
