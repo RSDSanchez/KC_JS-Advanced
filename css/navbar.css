@@ -1,190 +1,194 @@
 .navbar {
-  position: fixed;
-  top: 0;
-  z-index: 9999;
-  width: 100%;
-  background-color: #1d1d1f;
-  display: flex;
-  justify-content: space-between;
-  height: 80px;
-  border-bottom: 1px solid #00adb5;
+   position: fixed;
+   top: 0;
+   z-index: 9999;
+   width: 100%;
+   background-color: #1d1d1f;
+   display: flex;
+   justify-content: space-between;
+   height: 80px;
+   border-bottom: 1px solid #00adb5;
 }
 
 .navbar > .logo {
-  padding: 0 0.5rem;
-  flex-basis: 30%;
+   padding: 0.5rem 1rem;
+   flex-basis: 30%;
+}
+
+.navbar > .logo > a > span {
+   color: yellowgreen;
 }
 
 #menu-checkbox {
-  display: none;
+   display: none;
 }
 
 #menu-checkbox:checked ~ .menu-list {
-  display: flex;
+   display: flex;
 }
 
 .navbar > .menu {
-  position: relative;
-  width: 34px;
+   position: relative;
+   width: 34px;
 }
 
 .navbar > .menu > .menu-label {
-  position: absolute;
-  top: 15px;
-  width: 50px;
-  height: 65px;
-  z-index: 99999;
+   position: absolute;
+   top: 15px;
+   width: 50px;
+   height: 65px;
+   z-index: 99999;
 }
 
 .navbar > .menu > .menu-label:before {
-  content: "";
-  position: absolute;
-  width: 34px;
-  height: 3px;
-  background-color: #00adb5;
-  top: 30px;
-  box-shadow: 0 10px 0 0 #00adb5, 0 20px 0 0 #00adb5;
+   content: '';
+   position: absolute;
+   width: 34px;
+   height: 3px;
+   background-color: #00adb5;
+   top: 30px;
+   box-shadow: 0 10px 0 0 #00adb5, 0 20px 0 0 #00adb5;
 }
 
 .navbar > .menu > .menu-list {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 80px;
-  left: -83px;
-  justify-content: flex-start;
-  width: 200px;
-  text-align: center;
-  list-style: none;
+   display: none;
+   flex-direction: column;
+   position: absolute;
+   top: 80px;
+   left: -83px;
+   justify-content: flex-start;
+   width: 200px;
+   text-align: center;
+   list-style: none;
 }
 
 .navbar > .menu > .menu-list a,
 form {
-  display: block;
-  background-color: #00adb5;
-  color: #1d1d1f;
-  text-decoration: none;
-  border-top: 1px solid #1d1d1f;
-  padding: 0.5rem 0;
+   display: block;
+   background-color: #00adb5;
+   color: #1d1d1f;
+   text-decoration: none;
+   border-top: 1px solid #1d1d1f;
+   padding: 0.5rem 0;
 }
 
 .navbar > .menu > .menu-list a:hover {
-  background-color: #1d1d1f;
-  color: #00adb5;
+   background-color: #1d1d1f;
+   color: #00adb5;
 }
 
-.navbar > .menu > .menu-list input[type="search"] {
-  background-color: #fff;
-  border: 1px solid #1d1d1f;
-  height: 2rem;
+.navbar > .menu > .menu-list input[type='search'] {
+   background-color: #fff;
+   border: 1px solid #1d1d1f;
+   height: 2rem;
 }
 
 .navbar > .menu > .menu-list button {
-  background-color: #1d1d1f;
-  color: #00adb5;
-  padding: 5px;
+   background-color: #1d1d1f;
+   color: #00adb5;
+   padding: 5px;
 }
 
 .navbar > .signin {
-  display: flex;
-  align-items: center;
-  flex-basis: 30%;
-  justify-content: center;
+   display: flex;
+   align-items: center;
+   flex-basis: 30%;
+   justify-content: center;
 }
 
 .navbar > .signin > .register-btn {
-  padding: 5px 5px;
-  border: 0;
-  border-radius: 5px;
-  background-color: #00adb5;
-  color: #393e46;
-  font-size: 1rem;
+   padding: 5px 5px;
+   border: 0;
+   border-radius: 5px;
+   background-color: #00adb5;
+   color: #393e46;
+   font-size: 1rem;
 }
 
 .navbar > .signin > .register-btn:hover {
-  background-color: #393e46;
-  color: #00adb5;
+   background-color: #393e46;
+   color: #00adb5;
 }
 
 @media all and (min-width: 480px) {
-  .navbar > .logo {
-    flex-basis: 20%;
-  }
+   .navbar > .logo {
+      flex-basis: 20%;
+   }
 
-  .navbar > .signin {
-    flex-basis: 20%;
-  }
+   .navbar > .signin {
+      flex-basis: 20%;
+   }
 }
 
 @media all and (min-width: 768px) {
-  .navbar > .logo {
-    flex-basis: 15%;
-  }
+   .navbar > .logo {
+      flex-basis: 15%;
+   }
 
-  .navbar > .signin {
-    flex-basis: 15%;
-  }
-  .navbar > .menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-end;
-    position: initial;
-    width: 100%;
-  }
-  .navbar > .menu > .menu-label {
-    display: none;
-  }
+   .navbar > .signin {
+      flex-basis: 15%;
+   }
+   .navbar > .menu {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-end;
+      position: initial;
+      width: 100%;
+   }
+   .navbar > .menu > .menu-label {
+      display: none;
+   }
 
-  .navbar > .menu > .menu-list {
-    all: initial;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-    margin-left: 2rem;
-  }
+   .navbar > .menu > .menu-list {
+      all: initial;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      list-style: none;
+      margin-left: 2rem;
+   }
 
-  .navbar > .menu > .menu-list a {
-    background-color: initial;
-    color: #00adb5;
-    padding: 0.5rem 0.5rem;
-  }
+   .navbar > .menu > .menu-list a {
+      background-color: initial;
+      color: #00adb5;
+      padding: 0.5rem 0.5rem;
+   }
 
-  .navbar > .menu > .menu-list a:hover {
-    background-color: #00adb5;
-    color: #1d1d1f;
-  }
+   .navbar > .menu > .menu-list a:hover {
+      background-color: #00adb5;
+      color: #1d1d1f;
+   }
 
-  .navbar > .menu > .menu-list form {
-    background-color: initial;
-    padding: 0.5rem 1rem;
-  }
+   .navbar > .menu > .menu-list form {
+      background-color: initial;
+      padding: 0.5rem 1rem;
+   }
 
-  .navbar > .menu > .menu-list input[type="search"] {
-    width: 15vw;
-    max-width: 300px;
-  }
+   .navbar > .menu > .menu-list input[type='search'] {
+      width: 15vw;
+      max-width: 300px;
+   }
 }
 
 @media all and (min-width: 992px) {
-  .navbar > .logo {
-    flex-basis: 10%;
-  }
+   .navbar > .logo {
+      flex-basis: 10%;
+   }
 
-  .navbar > .signin {
-    flex-basis: 10%;
-  }
+   .navbar > .signin {
+      flex-basis: 10%;
+   }
 
-  .navbar > .menu > .menu-list a {
-    padding: 0.5rem 1rem;
-  }
+   .navbar > .menu > .menu-list a {
+      padding: 0.5rem 1rem;
+   }
 
-  .navbar > .menu > .menu-list input[type="search"] {
-    width: 30vw;
-    max-width: 300px;
-  }
+   .navbar > .menu > .menu-list input[type='search'] {
+      width: 30vw;
+      max-width: 300px;
+   }
 }
 
 @media all and (min-width: 1200px) {

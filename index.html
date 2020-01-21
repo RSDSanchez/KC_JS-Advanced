@@ -18,7 +18,7 @@
          integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN"
          crossorigin="anonymous"
       />
-      <link rel="shortcut icon" href="./img/favicon.png" type="image/png" />
+      <!-- <link rel="shortcut icon" href="./img/favicon.png" type="image/png" /> -->
       <link rel="stylesheet" href="./css/global.css" />
       <link rel="stylesheet" href="./css/navbar.css" />
       <link rel="stylesheet" href="./css/footer.css" />
@@ -32,9 +32,9 @@
 
       <nav class="navbar">
          <div class="logo">
-            <a href="index.html"
-               ><img src="./img/logo_tt.png" alt="logo Viewflix"
-            /></a>
+            <a href="index.html">
+               <span> <i class="fas fa-beer fa-4x"></i></span>
+            </a>
          </div>
 
          <div class="menu">
@@ -90,36 +90,8 @@
     ------------------------------------------->
 
       <main class="main">
-         <section class="populares section-container">
-            <h2 class="section-title"><a href="#">Populares</a></h2>
-
-            <article class="film-item film1">
-               <a href="movie.html"
-                  ><img
-                     src="./img/avengers-500.jpg"
-                     srcset="
-                        img/avengers-250.jpg 250w,
-                        img/avengers-500.jpg 500w
-                     "
-                     alt="Película Avengers"
-               /></a>
-
-               <div class="film-description">
-                  <div class="film-info">
-                     <div class="left">Año: 2019</div>
-                     <div class="right">IMdB: 7.5</div>
-                  </div>
-                  <a href="movie.html">
-                     <h3>Avengers: Endgame</h3>
-                     <p>
-                        Los Vengadores restantes deben encontrar una manera de
-                        recuperar a sus aliados para un enfrentamiento épico con
-                        Thanos, el malvado que diezmó el planeta y el universo.
-                     </p></a
-                  >
-               </div>
-            </article>
-         </section>
+         <h2 class="section-title"><a href="#">Populares</a></h2>
+         <section class="section-container"></section>
       </main>
 
       <!-----------------------------------------
@@ -143,5 +115,6 @@
             </ul>
          </div>
       </footer>
+      <script type="module" src="/js/main.js"></script>
    </body>
 </html>
