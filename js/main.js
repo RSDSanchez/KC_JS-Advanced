@@ -28,19 +28,33 @@ const beerTemplate = (beer, index) => {
    `;
 };
 
-const showBeers = async keyword => {
-    const beers = await getBeers(keyword);
+const printBeers = beers => {
     const sectionContainer = document.querySelector('.section-container');
-    console.log(beers);
     const beersHTML = beers
+        .slice(0, 6)
         .map((beer, index) => {
             return beerTemplate(beer, index);
         })
         .join('');
     sectionContainer.innerHTML = beersHTML;
+}
+
+const showBeers = async keyword => {
+    const beers = await getBeers(keyword);
+    console.log(beers);
+    printBeers(beers);
 };
 
-showBeers('REBEL');
+showBeers();
+
+const filterByDate = async date => {
+    const beers = await getBeers();
+    const filteredBeers = beers.filter(beer => beer.firstBrewed === date);
+    console.log(filteredBeers);
+    printBeers(filteredBeers);
+}
+
+// filterByDate('04/2013');
 
 // const beerDetails = async(id) => {
 //     const beer = await getBeerById(id);
