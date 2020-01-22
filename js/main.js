@@ -1,9 +1,9 @@
 import api from './api.js';
 
-const { getBeers } = api();
+const { getBeers, getBeerById } = api();
 
 const beerTemplate = (beer, index) => {
-   return `
+    return `
    <article class="item item${index + 1}">
       <div class="description">
          <div class="info">
@@ -28,16 +28,23 @@ const beerTemplate = (beer, index) => {
    `;
 };
 
-const showBeers = async () => {
-   const beers = await getBeers();
-   const sectionContainer = document.querySelector('.section-container');
-   console.log(beers);
-   const beersHTML = beers
-      .map((beer, index) => {
-         return beerTemplate(beer, index);
-      })
-      .join('');
-   sectionContainer.innerHTML = beersHTML;
+const showBeers = async keyword => {
+    const beers = await getBeers(keyword);
+    const sectionContainer = document.querySelector('.section-container');
+    console.log(beers);
+    const beersHTML = beers
+        .map((beer, index) => {
+            return beerTemplate(beer, index);
+        })
+        .join('');
+    sectionContainer.innerHTML = beersHTML;
 };
 
-showBeers();
+showBeers('REBEL');
+
+// const beerDetails = async(id) => {
+//     const beer = await getBeerById(id);
+//     console.log(beer);
+// }
+
+// beerDetails(18);
