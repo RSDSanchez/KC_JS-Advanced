@@ -2,12 +2,12 @@ import api from './api.js';
 import { hide, show } from './global.js';
 import storage from './storage.js';
 
-export let INPUT_STORAGE_ID = '';
+// export let INPUT_STORAGE_ID = '';
 export const STORAGE_TYPE = 'lStorage';
 
 const { setItem, getItem } = storage(STORAGE_TYPE);
 
-const { getBeers, getBeerById } = api();
+const { getBeers } = api();
 const searchButton = document.getElementById('search-button');
 const searchField = document.getElementById('searcher');
 const dateButton = document.getElementById('date-button');
@@ -26,7 +26,7 @@ const beerTemplate = (beer, index) => {
                <img src="${beer.image}" alt="Película Avengers"/>
             </div>
             <div class="summary">
-               <a href="movie.html">
+               <a href="/detail/${beer.beerId}">
                   <h3>${beer.name}</h3>
                   <p>
                      ${beer.description}
@@ -92,14 +92,18 @@ dateButton.addEventListener('click', evt => {
     }
 });
 
-if (getItem('search-filter')) {
-    showBeers(getItem('search-filter'));
-} else if (getItem('date-filter')) {
-    filterByDate(getItem('date-filter'));
-} else {
-    showBeers();
+const loadSectionContainer = () => {
+    if (getItem('search-filter')) {
+        showBeers(getItem('search-filter'));
+    } else if (getItem('date-filter')) {
+        filterByDate(getItem('date-filter'));
+    } else {
+        showBeers();
+    }
 }
 
+
+export default loadSectionContainer;
 
 // const beerDetails = async(id) => {
 //     const beer = await getBeerById(id);
