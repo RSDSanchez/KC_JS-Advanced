@@ -37,29 +37,6 @@
             </a>
          </div>
 
-         <div class="menu">
-            <input type="checkbox" id="menu-checkbox" />
-            <label for="menu-checkbox" class="menu-label"></label>
-
-            <ul class="menu-list">
-               <li><a href="novedades.html">Novedades</a></li>
-               <li><a href="#">Series</a></li>
-               <li><a href="#">Películas</a></li>
-               <li><a href="#">Favoritos</a></li>
-               <li>
-                  <form action="">
-                     <input
-                        type="search"
-                        name="search"
-                        id="search"
-                        placeholder=" Busca un título"
-                     />
-                     <button type="submit">Buscar</button>
-                  </form>
-               </li>
-            </ul>
-         </div>
-
          <div class="signin">
             <button class="register-btn"><strong>Log Out</strong></button>
          </div>
@@ -91,6 +68,30 @@
 
       <main class="main">
          <h2 class="section-title"><a href="#">Populares</a></h2>
+         <section class="filters-container section-title">
+            <div class="search-filter">
+               <form class="search-form">
+                  <input
+                     type="search"
+                     name="search"
+                     id="searcher"
+                     class="hide"
+                  />
+                  <button type="submit" id="search-button">
+                     <i class="fas fa-search fa-2x"></i>
+                  </button>
+               </form>
+               <form class="date-form">
+                  <input type="date" name="date" id="date-field" class="hide" />
+                  <button type="submit" id="date-button">
+                     <i class="far fa-calendar-alt fa-2x"></i>
+                  </button>
+               </form>
+            </div>
+            <div class="date-filter">
+               <form class="date-form"></form>
+            </div>
+         </section>
          <section class="section-container"></section>
       </main>
 

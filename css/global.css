@@ -40,3 +40,7 @@ h2 {
 .right {
    float: right;
 }
+
+.hide {
+   display: none;
+}
