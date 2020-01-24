@@ -15,25 +15,25 @@ const detailTemplate = (beer) => {
    `;
 };
 
-const quotesFormtemplate = `
-  <div id="detail" class="detail-content"></div>
-  <div class="quotes-list">
-    <h2>Quotes</h2>
-    <div id="quoteList">
-    </div>
-  </div>
-`;
+const commentTemplate = comment => {
+    return `<div>${comment.quote} - ${comment.date}</div>`;
+};
 
 
 const printBeer = beer => {
     const sectionContainer = document.querySelector('.section-container');
     const beerHTML = detailTemplate(beer);
-    console.log(beerHTML);
     sectionContainer.innerHTML = beerHTML;
 };
 
 const printComments = comments => {
     console.log(comments);
+    const commentList = document.getElementById('comment-list');
+    comments.forEach(comment => {
+        console.log(comment.quote);
+        const commentHTML = commentTemplate(comment);
+        commentList.innerHTML += commentHTML;
+    });
 };
 
 

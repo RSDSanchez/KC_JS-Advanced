@@ -69,12 +69,11 @@ const api = (apiURL = API_URL) => {
                         'X-API-KEY': API_KEY,
                     },
                 });
-                console.log(response);
                 if (!response.ok) {
                     throw new Error('Error creando comentario');
                 }
-                const responseBody = await response.json();
-                return responseBody;
+                // const responseBody = await response.json();
+                // return responseBody;
             } catch (err) {
                 console.error(err);
                 throw err;

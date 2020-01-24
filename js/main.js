@@ -6,8 +6,8 @@ import storage from './storage.js';
 export const STORAGE_TYPE = 'lStorage';
 
 const { setItem, getItem } = storage(STORAGE_TYPE);
-
 const { getBeers } = api();
+
 const searchButton = document.getElementById('search-button');
 const searchField = document.getElementById('searcher');
 const dateButton = document.getElementById('date-button');
@@ -51,7 +51,7 @@ const printBeers = beers => {
     hide(document.querySelector('.comment-section'));
 };
 
-const showBeers = async keyword => {
+const beersData = async keyword => {
     const beers = await getBeers(keyword);
     console.log(beers);
     printBeers(beers);
@@ -71,7 +71,7 @@ searchButton.addEventListener('click', evt => {
         hide(dateField);
         show(searchField);
     } else {
-        showBeers(searchField.value);
+        beersData(searchField.value);
         setItem('search-filter', searchField.value)
         searchField.value = '';
         hide(searchField);
@@ -95,20 +95,13 @@ dateButton.addEventListener('click', evt => {
 
 const loadSectionContainer = () => {
     if (getItem('search-filter')) {
-        showBeers(getItem('search-filter'));
+        beersData(getItem('search-filter'));
     } else if (getItem('date-filter')) {
         filterByDate(getItem('date-filter'));
     } else {
-        showBeers();
+        beersData();
     }
 }
 
 
 export default loadSectionContainer;
-
-// const beerDetails = async(id) => {
-//     const beer = await getBeerById(id);
-//     console.log(beer);
-// }
-
-// beerDetails(18);
