@@ -6,7 +6,7 @@ const api = (apiURL = API_URL) => {
     return {
         getBeers: async keyword => {
             try {
-                const URL = keyword ? `${beersEndPoint}?search=${keyword}` : `${beersEndPoint}`;
+                const URL = keyword ? `${beersEndPoint}?search=${keyword}` : `${beersEndPoint}?limit=10`;
                 const res = await fetch(URL, {
                     headers: {
                         'Content-Type': 'application/json',
@@ -43,6 +43,40 @@ const api = (apiURL = API_URL) => {
                 return data.beer;
             } catch (err) {
                 console.log(err.message);
+                throw err;
+            }
+        },
+        getComments: async id => {
+            try {
+                const response = await fetch(`${apiURL}/quote/${id}`);
+                if (!response.ok) {
+                    throw new Error('Error leyendo comentarios');
+                }
+                const comments = await response.json();
+                return comments;
+            } catch (err) {
+                console.error(err);
+                throw err;
+            }
+        },
+        createComment: async(id, comment) => {
+            try {
+                const response = await fetch(`${apiURL}/quote/${id}`, {
+                    method: 'POST',
+                    body: JSON.stringify({ quote: comment }),
+                    headers: {
+                        'Content-type': 'application/json',
+                        'X-API-KEY': API_KEY,
+                    },
+                });
+                console.log(response);
+                if (!response.ok) {
+                    throw new Error('Error creando comentario');
+                }
+                const responseBody = await response.json();
+                return responseBody;
+            } catch (err) {
+                console.error(err);
                 throw err;
             }
         }

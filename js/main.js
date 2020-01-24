@@ -48,6 +48,7 @@ const printBeers = beers => {
         })
         .join('');
     sectionContainer.innerHTML = beersHTML;
+    hide(document.querySelector('.comment-section'));
 };
 
 const showBeers = async keyword => {

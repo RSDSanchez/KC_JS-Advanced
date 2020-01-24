@@ -1,52 +1,63 @@
 import api from './api.js';
+import { hide, show } from './global.js';
+
+const QUOTES_API = 'https://quotes-api-keepcoding.herokuapp.com/api/v1'
 
 const { getBeerById } = api();
+const { getComments, createComment } = api(QUOTES_API);
 
-const beerTemplate = (beer, index) => {
+const detailTemplate = (beer) => {
     return `
-   <article class="item item${index + 1}">
-      <div class="description">
-         <div class="info">
-               <div class="left">Brewed: ${beer.firstBrewed}</div>
-               <div class="right">Price: ${beer.price}$</div>
-         </div>
-         <div class="details">
-            <div class="image">
-               <img src="${beer.image}" alt="Película Avengers"/>
-            </div>
-            <div class="summary">
-               <a href="/detail/${beer.beerId}">
-                  <h3>${beer.name}</h3>
-                  <p>
-                     ${beer.description}
-                  </p>
-               </a>
-            </div>
-         </div>
-      </div>
+   <article class="item">
+      <h1>${beer.name}</h1>
+      
    </article>
    `;
 };
 
-const printBeers = beers => {
+const quotesFormtemplate = `
+  <div id="detail" class="detail-content"></div>
+  <div class="quotes-list">
+    <h2>Quotes</h2>
+    <div id="quoteList">
+    </div>
+  </div>
+`;
+
+
+const printBeer = beer => {
     const sectionContainer = document.querySelector('.section-container');
-    const beersHTML = beers
-        .slice(0, 6)
-        .map((beer, index) => {
-            return beerTemplate(beer, index);
-        })
-        .join('');
-    sectionContainer.innerHTML = beersHTML;
+    const beerHTML = detailTemplate(beer);
+    console.log(beerHTML);
+    sectionContainer.innerHTML = beerHTML;
+};
+
+const printComments = comments => {
+    console.log(comments);
 };
 
 
 const beerDetails = async(id) => {
     const beer = await getBeerById(id);
-    console.log(beer);
+    const comments = await getComments(id);
+    printBeer(beer);
+    printComments(comments);
+    show(document.querySelector('.comment-section'));
+    document.querySelector('.comment-form').addEventListener('submit', evt => {
+        evt.preventDefault();
+        postComment(id);
+    });
 }
 
-
-
+const postComment = async(id) => {
+    console.log(id);
+    const comment = document.querySelector('#comment');
+    if (comment.validity.valid) {
+        await createComment(id, comment.value);
+        const newComments = await getComments(id);
+        printComments(newComments);
+    }
+};
 
 
 export default beerDetails;
