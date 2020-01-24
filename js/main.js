@@ -15,7 +15,7 @@ const dateField = document.getElementById('date-field');
 const resetButton = document.getElementById('reset-forms');
 
 const beerTemplate = (beer, index) => {
-    return `
+   return `
    <article class="item item${index + 1}">
       <div class="description">
          <div class="info">
@@ -52,82 +52,84 @@ const noBeerTemplate = `
    </article>
    `;
 
-
 const printBeers = beers => {
-    const sectionContainer = document.querySelector('.section-container');
-    if (beers.length > 0) {
-        const beersHTML = beers
-            .slice(0, 6)
-            .map((beer, index) => {
-                return beerTemplate(beer, index);
-            })
-            .join('');
-        sectionContainer.innerHTML = beersHTML;
-    } else {
-        sectionContainer.innerHTML = noBeerTemplate;
-    }
-    hide(document.querySelector('.comment-section'));
+   const sectionContainer = document.querySelector('.section-container');
+   if (beers.length > 0) {
+      const beersHTML = beers
+         .slice(0, 6)
+         .map((beer, index) => {
+            return beerTemplate(beer, index);
+         })
+         .join('');
+      sectionContainer.innerHTML = beersHTML;
+   } else {
+      sectionContainer.innerHTML = noBeerTemplate;
+   }
+   hide(document.querySelector('.comment-section'));
 };
 
 const beersData = async keyword => {
-    const beers = await getBeers(keyword);
-    console.log(beers);
-    printBeers(beers);
+   const beers = await getBeers(keyword);
+   console.log(beers);
+   printBeers(beers);
 };
 
 const filterByDate = async date => {
-    const beers = await getBeers();
-    const filteredBeers = beers.filter(beer => beer.firstBrewed === date);
-    console.log(filteredBeers);
-    printBeers(filteredBeers);
-
+   const beers = await getBeers();
+   const filteredBeers = beers.filter(beer => beer.firstBrewed === date);
+   console.log(filteredBeers);
+   printBeers(filteredBeers);
 };
 
 searchButton.addEventListener('click', evt => {
-    evt.preventDefault();
-    if (!searchField.value) {
-        hide(dateField);
-        show(searchField);
-    } else {
-        beersData(searchField.value);
-        setItem('search-filter', searchField.value)
-        searchField.value = '';
-        hide(searchField);
-    }
+   evt.preventDefault();
+   if (!searchField.value) {
+      hide(dateField);
+      show(searchField);
+   } else {
+      beersData(searchField.value);
+      setItem('search-filter', searchField.value);
+      searchField.value = '';
+      hide(searchField);
+   }
 });
 
 dateButton.addEventListener('click', evt => {
-    evt.preventDefault();
-    if (!dateField.value) {
-        hide(searchField);
-        show(dateField);
-    } else {
-        let date = dateField.value
-        date = date.split('-', 2).reverse().join('/');
-        filterByDate(date);
-        setItem('date-filter', date)
-        dateField.value = '';
-        hide(dateField);
-    }
+   evt.preventDefault();
+   if (!dateField.value) {
+      hide(searchField);
+      show(dateField);
+   } else {
+      let date = dateField.value;
+      date = date
+         .split('-', 2)
+         .reverse()
+         .join('/');
+      filterByDate(date);
+      setItem('date-filter', date);
+      dateField.value = '';
+      hide(dateField);
+   }
 });
 
 resetButton.addEventListener('click', evt => {
-    evt.preventDefault();
-    localStorage.clear();
-    searchField.value = '';
-    dateField.value = '';
-    beersData();
+   evt.preventDefault();
+   localStorage.clear();
+   searchField.value = '';
+   hide(searchField);
+   dateField.value = '';
+   hide(dateField);
+   beersData();
 });
 
 const loadSectionContainer = () => {
-    if (getItem('search-filter')) {
-        beersData(getItem('search-filter'));
-    } else if (getItem('date-filter')) {
-        filterByDate(getItem('date-filter'));
-    } else {
-        beersData();
-    }
-}
-
+   if (getItem('search-filter')) {
+      beersData(getItem('search-filter'));
+   } else if (getItem('date-filter')) {
+      filterByDate(getItem('date-filter'));
+   } else {
+      beersData();
+   }
+};
 
 export default loadSectionContainer;
