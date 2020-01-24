@@ -12,6 +12,7 @@ const searchButton = document.getElementById('search-button');
 const searchField = document.getElementById('searcher');
 const dateButton = document.getElementById('date-button');
 const dateField = document.getElementById('date-field');
+const resetButton = document.getElementById('reset-forms');
 
 const beerTemplate = (beer, index) => {
     return `
@@ -39,15 +40,32 @@ const beerTemplate = (beer, index) => {
    `;
 };
 
+const noBeerTemplate = `
+   <article class="item">
+      <div class="description">
+         <div class="details">
+            <div class="summary">
+                  <h3>No results</h3>
+            </div>
+         </div>
+      </div>
+   </article>
+   `;
+
+
 const printBeers = beers => {
     const sectionContainer = document.querySelector('.section-container');
-    const beersHTML = beers
-        .slice(0, 6)
-        .map((beer, index) => {
-            return beerTemplate(beer, index);
-        })
-        .join('');
-    sectionContainer.innerHTML = beersHTML;
+    if (beers.length > 0) {
+        const beersHTML = beers
+            .slice(0, 6)
+            .map((beer, index) => {
+                return beerTemplate(beer, index);
+            })
+            .join('');
+        sectionContainer.innerHTML = beersHTML;
+    } else {
+        sectionContainer.innerHTML = noBeerTemplate;
+    }
     hide(document.querySelector('.comment-section'));
 };
 
@@ -91,6 +109,14 @@ dateButton.addEventListener('click', evt => {
         dateField.value = '';
         hide(dateField);
     }
+});
+
+resetButton.addEventListener('click', evt => {
+    evt.preventDefault();
+    localStorage.clear();
+    searchField.value = '';
+    dateField.value = '';
+    beersData();
 });
 
 const loadSectionContainer = () => {
