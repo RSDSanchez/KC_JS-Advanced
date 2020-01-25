@@ -237,7 +237,8 @@
 
 .comment-section input {
    margin-top: 0.5rem;
-   width: 50%;
+   width: 70%;
+   line-height: 1.5rem;
 }
 
 .comment-section .comment-button {
@@ -248,6 +249,11 @@
    background-color: #393e46;
    color: #00adb5;
    font-size: 1rem;
+}
+
+.comment-section .comment-button:hover {
+   background-color: #00adb5;
+   color: #393e46;
 }
 
 .comment-section .comment-list {
@@ -285,6 +291,8 @@
          'image data'
          'image tips'
          'image description';
+      padding-left: 10%;
+      padding-right: 10%;
    }
 
    .comment-section .comment-list .comment {
@@ -302,4 +310,8 @@
 }
 
 @media all and (min-width: 1200px) {
+   .beer-detail {
+      padding-left: 15%;
+      padding-right: 15%;
+   }
 }

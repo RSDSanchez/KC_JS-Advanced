@@ -13,6 +13,7 @@ const searchField = document.getElementById('searcher');
 const dateButton = document.getElementById('date-button');
 const dateField = document.getElementById('date-field');
 const resetButton = document.getElementById('reset-forms');
+const logoButton = document.querySelector('.navbar > .logo a');
 
 const beerTemplate = (beer, index) => {
    return `
@@ -53,7 +54,9 @@ const noBeerTemplate = `
    `;
 
 const printBeers = beers => {
-   const sectionContainer = document.querySelector('.section-container');
+   const sectionContainer = document.getElementById('main-section');
+   sectionContainer.classList.add('section-container');
+   sectionContainer.classList.remove('section-detail');
    if (beers.length > 0) {
       const beersHTML = beers
          .slice(0, 6)
@@ -80,6 +83,10 @@ const filterByDate = async date => {
    console.log(filteredBeers);
    printBeers(filteredBeers);
 };
+
+logoButton.addEventListener('click', () => {
+   location.href = '/';
+});
 
 searchButton.addEventListener('click', evt => {
    evt.preventDefault();

@@ -3,14 +3,11 @@ const PORT = 3000;
 
 const app = express();
 
-console.log(__dirname);
-
 app.use(express.static('.')); // servidor de staticos como http-server .
 app.get('/*', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+   res.sendFile(__dirname + '/');
 });
 
 app.listen(PORT, () => {
-  console.log('Listening...');
+   console.log('Listening...');
 });
-

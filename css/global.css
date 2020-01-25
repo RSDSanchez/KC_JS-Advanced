@@ -45,6 +45,11 @@ h2 {
    display: none;
 }
 
+.button-decoration {
+   background: none;
+   border: none;
+}
+
 i::before {
    background: transparent;
 }
