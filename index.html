@@ -18,7 +18,6 @@
          integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN"
          crossorigin="anonymous"
       />
-      <!-- <link rel="shortcut icon" href="./img/favicon.png" type="image/png" /> -->
       <link rel="stylesheet" href="./css/global.css" />
       <link rel="stylesheet" href="./css/navbar.css" />
       <link rel="stylesheet" href="./css/footer.css" />
@@ -32,7 +31,7 @@
 
       <nav class="navbar">
          <div class="logo">
-            <a href="index.html">
+            <a href="/">
                <span> <i class="fas fa-beer fa-4x"></i></span>
             </a>
          </div>
@@ -48,11 +47,11 @@
 
       <header class="header">
          <img
-            src="img/header-1200.jpg"
+            src="./img/header-1200.jpg"
             srcset="
-               img/header-350.jpg   350w,
-               img/header-768.jpg   768w,
-               img/header-1200.jpg 1200w
+               ./img/header-350.jpg   350w,
+               ./img/header-768.jpg   768w,
+               ./img/header-1200.jpg 1200w
             "
             alt="header cervezas"
          />
@@ -101,19 +100,19 @@
          <section class="comment-section hide">
             <form method="POST" class="comment-form" novalidate>
                <div class="quote-input">
-                  <label for="quote">Quote of this show</label>
+                  <label for="comment">Leave a comment: </label>
                   <input
-                     name="kevin"
+                     name="comment"
                      required
                      id="comment"
-                     placeholder="Add your quote"
-                     class="input primary"
+                     placeholder="Your comment..."
+                     class="input"
                      type="text"
                   />
                </div>
-               <button type="submit" class="comment-button">Add quote</button>
+               <button type="submit" class="comment-button">Add</button>
             </form>
-            <div id="comment-list"></div>
+            <div id="comment-list" class="comment-list"></div>
          </section>
       </main>
 

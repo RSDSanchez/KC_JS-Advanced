@@ -36,7 +36,16 @@ const detailTemplate = beer => {
 };
 
 const commentTemplate = comment => {
-   return `<div>${comment.quote} - ${comment.date}</div>`;
+   return `
+   <div class="comment">
+        <div class="text">${comment.quote}</div>  
+        <div class="date"><h5>${comment.date.slice(
+           0,
+           10
+        )} - ${comment.date.slice(11, 16)}<h5></div>
+        
+    </div>
+   `;
 };
 
 const printBeer = beer => {
@@ -50,6 +59,7 @@ const printBeer = beer => {
 const printComments = comments => {
    console.log(comments);
    const commentList = document.getElementById('comment-list');
+   commentList.innerHTML = '';
    comments.forEach(comment => {
       console.log(comment.quote);
       const commentHTML = commentTemplate(comment);
@@ -80,6 +90,7 @@ const postComment = async id => {
       await createComment(id, comment.value);
       const newComments = await getComments(id);
       printComments(newComments);
+      comment.value = '';
    }
 };
 
